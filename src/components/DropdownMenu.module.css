@@ -1,0 +1,87 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 100;
+  }
+  
+  .dropdownButton {
+    background-color: #10b981;
+    color: white;
+    padding: 10px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+  }
+  
+  .dropdownButton:hover {
+    background-color: #059669;
+  }
+  
+  .arrow {
+    font-size: 12px;
+  }
+  
+  .menu {
+    list-style: none; /* ✅ bu nuqtalarni yo'qotadi */
+    margin: 0;
+    padding: 6px 0;
+    position: absolute;
+    top: 105%;
+    left: 0;
+    width: 180px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: scaleY(0.95);
+    transform-origin: top;
+    pointer-events: none;
+    transition: all 0.25s ease;
+  }
+  
+  .show {
+    opacity: 1;
+    transform: scaleY(1);
+    pointer-events: auto;
+  }
+  
+  .item {
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    transition: background 0.2s ease;
+  }
+  
+  .item:hover {
+    background-color: #f0fdf4;
+    color: #047857;
+  }
+  
+  .active {
+    background-color: #dcfce7;
+    font-weight: bold;
+    color: #047857;
+  }
+  
+  /* Mobil moslashuv */
+  @media (max-width: 767px) {
+    .dropdownButton {
+      width: 100%;
+      font-size: 13px;
+      padding: 10px;
+      justify-content: space-between;
+    }
+  
+    .menu {
+      width: 100%;
+    }
+  }
+  
