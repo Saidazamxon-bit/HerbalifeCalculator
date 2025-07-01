@@ -14,6 +14,7 @@
   justify-content: center;
   margin-top: -80px;
   text-align: center;
+  margin-left: 350px;
 }
 
 .Hertext img {
@@ -449,3 +450,38 @@
   opacity: 0;
   transform: translateX(-50%) translateY(-20px);
 }
+
+
+.dropdownGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.catalogDropdown {
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.catalogDropdown:hover {
+  background-color: #f0f0f0;
+  border-color: #4caf50;
+}
+
+.catalogDropdown:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+

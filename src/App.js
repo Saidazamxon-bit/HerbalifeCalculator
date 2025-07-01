@@ -1,17 +1,10 @@
 // App.js
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-// Sahifalar
-import Home from './pages/Home';
-
+import React from "react";
+import "./App.css";
+import Home from "./pages/Home";
 
 function App() {
-  return (
-    
-      <Home/>
-    
-  );
+  return <Home />;
 }
 
 export default App;

@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
-
 import css from "./Home.module.css";
 import logo from "../assets/logo.png";
 import LikeUnlike from "../components/LikeUnlike";
 import DropdownMenu from "../components/DropdownMenu";
+import CatalogDropdown from "../components/CatalogDropdown";
 
-// Rasmlar
+// Kosmetika rasmlar
+import kos1 from "../assets/kosmetika/1kos.png";
+import kos2 from "../assets/kosmetika/2kos.png";
+import kos3 from "../assets/kosmetika/3kos.png";
+import kos4 from "../assets/kosmetika/4kos.png";
+import kos5 from "../assets/kosmetika/5kos.png";
+import loyavayalpiz from "../assets/kosmetika/loyvayalpiz3.png";
+
+// Mahsulotlar rasmlari
 import aloeclassic from "../assets/aloeclassic.png";
 import aloemanga from "../assets/aloemanga.png";
 import baton from "../assets/baton.png";
@@ -18,8 +26,8 @@ import tr102 from "../assets/tr102.png";
 import tr51 from "../assets/tr51.png";
 import olmalik from "../assets/olmalik.png";
 
-// Mahsulotlar ro'yxati
-const products = [
+// Mahsulotlar
+const allProducts = [
   {
     name: "Formula 1 Kakteyl",
     vp: 23.95,
@@ -31,6 +39,7 @@ const products = [
     likes: 25,
     unlikes: 0,
     image: kakltel,
+    category: "mahsulotlar",
   },
   {
     name: "Formula 3 Oqsil",
@@ -43,6 +52,7 @@ const products = [
     likes: 17,
     unlikes: 2,
     image: formula3,
+    category: "mahsulotlar",
   },
   {
     name: "Suli olma ichimligi",
@@ -55,6 +65,7 @@ const products = [
     likes: 12,
     unlikes: 1,
     image: olmalik,
+    category: "mahsulotlar",
   },
   {
     name: "Beta xart",
@@ -67,6 +78,7 @@ const products = [
     likes: 19,
     unlikes: 3,
     image: betaxart,
+    category: "mahsulotlar",
   },
   {
     name: "Chips",
@@ -79,6 +91,7 @@ const products = [
     likes: 10,
     unlikes: 2,
     image: chips,
+    category: "mahsulotlar",
   },
   {
     name: "Protein Drink Mix. Vegan",
@@ -91,6 +104,7 @@ const products = [
     likes: 6,
     unlikes: 1,
     image: drinkmiks,
+    category: "mahsulotlar",
   },
   {
     name: "Travnoy 102gr",
@@ -103,6 +117,7 @@ const products = [
     likes: 7,
     unlikes: 0,
     image: tr102,
+    category: "mahsulotlar",
   },
   {
     name: "Travnoy 51gr",
@@ -115,6 +130,7 @@ const products = [
     likes: 14,
     unlikes: 2,
     image: tr51,
+    category: "mahsulotlar",
   },
   {
     name: "Aloe",
@@ -127,6 +143,7 @@ const products = [
     likes: 21,
     unlikes: 1,
     image: aloeclassic,
+    category: "mahsulotlar",
   },
   {
     name: "Aloe Mango",
@@ -139,6 +156,7 @@ const products = [
     likes: 18,
     unlikes: 3,
     image: aloemanga,
+    category: "mahsulotlar",
   },
   {
     name: "PROTEINLI BATONCHIK LIMONLI",
@@ -151,20 +169,119 @@ const products = [
     likes: 14,
     unlikes: 2,
     image: baton,
+    category: "mahsulotlar",
   },
 ];
 
+// Kosmetika
+const cosmetics = [
+  {
+    name: "Herbalife SKIN aloe asosidagi tozalovchi gel",
+    vp: 16.75,
+    recommendedPrice: 281759,
+    price25: 23008,
+    price35: 199507,
+    price42: 183056,
+    price50: 164256,
+    likes: 8,
+    unlikes: 1,
+    image: kos1,
+    category: "kosmetika",
+  },
+  {
+    name: "Herbalife SKIN o‘simlik tonikli loson ",
+    vp: 12.7,
+    recommendedPrice: 213649,
+    price25: 169099,
+    price35: 151279,
+    price42: 138805,
+    price50: 124549,
+    likes: 5,
+    unlikes: 0,
+    image: kos2,
+    category: "kosmetika",
+  },
+  {
+    name: "Herbalife SKIN qarishga qarshi zardob (50ml)",
+    vp: 43.35,
+    recommendedPrice: 729097,
+    price25: 577067,
+    price35:  516254,
+    price42:  473686,
+    price50: 425036,
+    likes: 6,
+    unlikes: 1,
+    image: kos3,
+    category: "kosmetika",
+  },
+  {
+    name: "Herbalife SKIN loy va yalpiz asosida tozalovchi niqob",
+    vp: 14.20,
+    recommendedPrice: 261385,
+    price25: 206881,
+    price35: 185080,
+    price42:  169819,
+    price50:  152378,
+    likes: 3,
+    unlikes: 0,
+    image: loyavayalpiz,
+    category: "kosmetika",
+  },
+  {
+    name: "Lifting bilan koʼz atrofidagi teri uchun gel",
+    vp: 26.35,
+    recommendedPrice: 443101,
+    price25:  350707,
+    price35: 313749,
+    price42:  287878,
+    price50:  258311,
+    likes: 7,
+    unlikes: 1,
+    image: kos4,
+    category: "kosmetika",
+  },
+  {
+    name: "Terining tabiiy porlashi uchun kunlik namlovchi krem",
+    vp: 32.65,
+    recommendedPrice:  548812,
+    price25:  434374,
+    price35:  388599,
+    price42: 356556,
+    price50: 319936,
+    likes: 9,
+    unlikes: 2,
+    image: kos5,
+    category: "kosmetika",
+  },
+];
+
+
+
 const Home = () => {
+  const [catalogType, setCatalogType] = useState("mahsulotlar");
   const [notification, setNotification] = useState("");
   const [notifVisible, setNotifVisible] = useState(false);
-  const [quantities, setQuantities] = useState(Array(products.length).fill("0"));
   const [discount, setDiscount] = useState(0);
   const [selectedItems, setSelectedItems] = useState([]);
+
+  // ✅ KATALOG TURIGA QARAB PRODUCTS NI TANLASH
+  const products =
+  catalogType === "kosmetika"
+    ? cosmetics.map((p) => ({ ...p, category: "kosmetika" }))
+    : allProducts.filter((p) => p.category === catalogType);
+
+
+  const [quantities, setQuantities] = useState(Array(products.length).fill("0"));
+
+  useEffect(() => {
+    setQuantities(Array(products.length).fill("0"));
+  }, [catalogType]);
 
   useEffect(() => {
     setSelectedItems((prev) =>
       prev.map((item) => {
         const product = products.find((p) => p.name === item.name);
+        if (!product) return item;
         const newPrice =
           discount === 25
             ? product.price25
@@ -182,7 +299,7 @@ const Home = () => {
         };
       })
     );
-  }, [discount]);
+  }, [discount, catalogType]);
 
   const increase = (index) => {
     const newQuantities = [...quantities];
@@ -259,18 +376,14 @@ const Home = () => {
           <img src={logo} alt="logo" />
           <h1>Herbalife Nutrition Product Scores</h1>
         </div>
-        <div className={css.dropdownFixed}>
+        <div className={css.dropdownGroup}>
+          <CatalogDropdown selected={catalogType} setSelected={setCatalogType} />
           <DropdownMenu selected={discount} setSelected={setDiscount} />
         </div>
       </div>
 
       <div className={css.cardbox}>
         {products.map((product, index) => {
-          let customClass = "";
-          if (product.name === "Beta xart") customClass = css.betaxart;
-          if (product.name === "Chips") customClass = css.chips;
-          if (product.name === "Aloe Mango") customClass = css.aloemango;
-
           const discountedPrice =
             discount === 25
               ? product.price25
@@ -284,7 +397,7 @@ const Home = () => {
 
           return (
             <div className={css.card} key={index}>
-              <div className={`${css.cardimg} ${customClass}`}>
+              <div className={css.cardimg}>
                 <img src={product.image} alt={product.name} className={css.productimg} />
               </div>
               <h2 className={css.productname}>{product.name}</h2>
@@ -333,7 +446,8 @@ const Home = () => {
           <ul>
             {selectedItems.map((item, idx) => (
               <li key={idx}>
-                {item.quantity}x {item.name} → {item.vp * item.quantity} VP, {(item.price * item.quantity).toLocaleString()} so‘m
+                {item.quantity}x {item.name} → {item.vp * item.quantity} VP,{" "}
+                {(item.price * item.quantity).toLocaleString()} so‘m
               </li>
             ))}
           </ul>
