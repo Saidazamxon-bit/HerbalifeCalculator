@@ -28,7 +28,7 @@ import olmalik from "../assets/olmalik.png";
 import fito from "../assets/fito.png";
 import For2 from "../assets/for2.png";
 
-// Boshqa rasmlari
+// Boshqa rasmlar
 import eko from "../assets/boshqa/ekoligik.png";
 import supersh from "../assets/boshqa/supersh.jpeg";
 import ikkishisha from "../assets/boshqa/2lshisha.png";
@@ -108,7 +108,7 @@ const allProducts = [
     vp: 31.45,
     recommendedPrice: 541576,
     price25: 429038,
-    price35: 384023,  
+    price35: 384023,
     price42: 352513,
     price50: 316500,
     likes: 6,
@@ -181,10 +181,9 @@ const allProducts = [
     image: baton,
     category: "mahsulotlar",
   },
-
   {
     name: "Fito Komplit ",
-    vp: 29.50,
+    vp: 29.5,
     recommendedPrice: 470575,
     price25: 470575,
     price35: 422939,
@@ -195,7 +194,6 @@ const allProducts = [
     image: fito,
     category: "mahsulotlar",
   },
-
   {
     name: "Formula 2",
     vp: 13.55,
@@ -294,7 +292,6 @@ const cosmetics = [
 ];
 
 // --- Boshqa mahsulotlar ---
-
 const others = [
   {
     name: "Boshlang'ich to'plam",
@@ -309,10 +306,9 @@ const others = [
     image: Shartnoma,
     category: "boshqa",
   },
-
   {
     name: "Ekologik qoshiq",
-    vp: 0.10,
+    vp: 0.1,
     recommendedPrice: 12155.0,
     price25: 12155.0,
     price35: 12155.0,
@@ -323,8 +319,6 @@ const others = [
     image: eko,
     category: "boshqa",
   },
-
-  
   {
     name: "Kokteyl Super sheyker",
     vp: 1.65,
@@ -338,9 +332,8 @@ const others = [
     image: supersh,
     category: "boshqa",
   },
-
   {
-    name: " Herbalife Nutrition 2 litrli shisha",
+    name: "Herbalife Nutrition 2 litrli shisha",
     vp: 2.4,
     recommendedPrice: 351067.0,
     price25: 351067.0,
@@ -352,7 +345,6 @@ const others = [
     image: ikkishisha,
     category: "boshqa",
   },
-
   {
     name: "HLN o'lchash qoshig'i (to'plam 10 dona)",
     vp: 1.2,
@@ -366,7 +358,6 @@ const others = [
     image: qoshiq,
     category: "boshqa",
   },
-
   {
     name: "Shaker (500ml)",
     vp: 1.65,
@@ -388,8 +379,8 @@ const Home = () => {
   const [notifVisible, setNotifVisible] = useState(false);
   const [discount, setDiscount] = useState(0);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [quantities, setQuantities] = useState([]);
 
-  // ✅ Katalog turiga qarab products tanlash
   const products =
     catalogType === "kosmetika"
       ? cosmetics
@@ -397,15 +388,10 @@ const Home = () => {
       ? others
       : allProducts;
 
-  const [quantities, setQuantities] = useState(
-    Array(products.length).fill("0")
-  );
-
   useEffect(() => {
     setQuantities(Array(products.length).fill("0"));
   }, [catalogType]);
 
-  // Tanlangan elementlarning narxi chegirmaga qarab yangilanishi
   useEffect(() => {
     setSelectedItems((prev) =>
       prev.map((item) => {
@@ -421,7 +407,6 @@ const Home = () => {
             : discount === 50
             ? product.price50
             : product.recommendedPrice;
-
         return { ...item, price: newPrice };
       })
     );
@@ -429,9 +414,7 @@ const Home = () => {
 
   const increase = (index) => {
     const newQuantities = [...quantities];
-    newQuantities[index] = (
-      parseInt(newQuantities[index] || "0") + 1
-    ).toString();
+    newQuantities[index] = (parseInt(newQuantities[index] || "0") + 1).toString();
     setQuantities(newQuantities);
   };
 
@@ -444,50 +427,51 @@ const Home = () => {
     }
   };
 
+  // ✅ YANGILANGAN handleAdd
   const handleAdd = (index) => {
     const qty = parseInt(quantities[index]);
-    if (qty >= 0) {
-      const product = products[index];
-      const price =
-        discount === 25
-          ? product.price25
-          : discount === 35
-          ? product.price35
-          : discount === 42
-          ? product.price42
-          : discount === 50
-          ? product.price50
-          : product.recommendedPrice;
+    const product = products[index];
 
-      const newItem = {
-        name: product.name,
-        vp: product.vp,
-        price,
-        quantity: qty,
-      };
-
-      setSelectedItems((prev) => {
-        const exists = prev.find((i) => i.name === newItem.name);
-        if (exists) {
-          return prev.map((i) =>
-            i.name === newItem.name ? { ...i, quantity: newItem.quantity } : i
-          );
-        } else {
-          return [...prev, newItem];
-        }
-      });
-
-      setNotification(`${product.name} mahsuloti ${qty} dona qilib belgilandi`);
+    if (qty === 0) {
+      setSelectedItems((prev) => prev.filter((i) => i.name !== product.name));
+      setNotification(`${product.name} tanlanganlardan olib tashlandi`);
       setNotifVisible(true);
       setTimeout(() => setNotifVisible(false), 2000);
       setTimeout(() => setNotification(""), 2600);
+      return;
     }
+
+    const price =
+      discount === 25
+        ? product.price25
+        : discount === 35
+        ? product.price35
+        : discount === 42
+        ? product.price42
+        : discount === 50
+        ? product.price50
+        : product.recommendedPrice;
+
+    const newItem = { name: product.name, vp: product.vp, price, quantity: qty };
+
+    setSelectedItems((prev) => {
+      const exists = prev.find((i) => i.name === newItem.name);
+      if (exists) {
+        return prev.map((i) =>
+          i.name === newItem.name ? { ...i, quantity: newItem.quantity } : i
+        );
+      } else {
+        return [...prev, newItem];
+      }
+    });
+
+    setNotification(`${product.name} mahsuloti ${qty} dona qilib belgilandi`);
+    setNotifVisible(true);
+    setTimeout(() => setNotifVisible(false), 2000);
+    setTimeout(() => setNotification(""), 2600);
   };
 
-  const totalVP = selectedItems.reduce(
-    (sum, item) => sum + item.vp * item.quantity,
-    0
-  );
+  const totalVP = selectedItems.reduce((sum, item) => sum + item.vp * item.quantity, 0);
   const totalPrice = selectedItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -541,17 +525,11 @@ const Home = () => {
           return (
             <div className={css.card} key={index}>
               <div className={css.cardimg}>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className={css.productimg}
-                />
+                <img src={product.image} alt={product.name} className={css.productimg} />
               </div>
               <h2 className={css.productname}>{product.name}</h2>
               <h3 className={css.vpValue}>{product.vp} VP</h3>
-              <p className={css.price}>
-                Narx: {discountedPrice.toLocaleString()} so‘m
-              </p>
+              <p className={css.price}>Narx: {discountedPrice.toLocaleString()} so‘m</p>
 
               <div className={css.counter}>
                 <button onClick={() => decrease(index)}>-</button>
@@ -579,17 +557,11 @@ const Home = () => {
                 <button onClick={() => increase(index)}>+</button>
               </div>
 
-              <button
-                className={css.addbtn}
-                onClick={() => handleAdd(index)}
-              >
+              <button className={css.addbtn} onClick={() => handleAdd(index)}>
                 Qo‘shish
               </button>
 
-              <LikeUnlike
-                initialLikes={product.likes}
-                initialUnlikes={product.unlikes}
-              />
+              <LikeUnlike initialLikes={product.likes} initialUnlikes={product.unlikes} />
             </div>
           );
         })}
@@ -601,7 +573,7 @@ const Home = () => {
           <ul>
             {selectedItems.map((item, idx) => (
               <li key={idx}>
-                {item.quantity}x {item.name} → {item.vp * item.quantity} VP,{' '}
+                {item.quantity}x {item.name} → {item.vp * item.quantity} VP,{" "}
                 {(item.price * item.quantity).toLocaleString()} so‘m
               </li>
             ))}
