@@ -207,6 +207,20 @@ const allProducts = [
     image: For2,
     category: "mahsulotlar",
   },
+
+  {
+    name: "Herbalifeline Max ",
+    vp: 19.40,
+    recommendedPrice: 305689,
+    price25: 305689,
+    price35: 273616,
+    price42: 251165,
+    price50: 225506,
+    likes: 14,
+    unlikes: 2,
+    image: For2,
+    category: "mahsulotlar",
+  },
 ];
 
 // --- Kosmetika ---
