@@ -27,6 +27,7 @@ import tr51 from "../assets/tr51.png";
 import olmalik from "../assets/olmalik.png";
 import fito from "../assets/fito.png";
 import For2 from "../assets/for2.png";
+import Line from "../assets/Herbaline.png";
 
 // Boshqa rasmlar
 import eko from "../assets/boshqa/ekoligik.png";
@@ -218,7 +219,7 @@ const allProducts = [
     price50: 225506,
     likes: 14,
     unlikes: 2,
-    image: For2,
+    image: Line,
     category: "mahsulotlar",
   },
 ];
