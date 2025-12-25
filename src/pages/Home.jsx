@@ -28,6 +28,7 @@ import olmalik from "../assets/olmalik.png";
 import fito from "../assets/fito.png";
 import For2 from "../assets/for2.png";
 import Line from "../assets/Herbaline.png";
+import Kalsiy from "../assets/Kalsiy.png";
 
 // Boshqa rasmlar
 import eko from "../assets/boshqa/ekoligik.png";
@@ -222,7 +223,24 @@ const allProducts = [
     image: Line,
     category: "mahsulotlar",
   },
+
+  {
+    name: "Xtra Cal (KALSIY)",
+    vp: 19.40,
+    recommendedPrice: 219953,
+    price25: 219953,
+    price35: 196875,
+    price42: 180721,
+    price50: 162259,
+    likes: 14,
+    unlikes: 2,
+    image: Kalsiy,
+    category: "mahsulotlar",
+  },
 ];
+
+
+
 
 // --- Kosmetika ---
 const cosmetics = [
