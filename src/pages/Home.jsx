@@ -439,31 +439,31 @@ const Home = () => {
       ? others
       : allProducts;
 
-  useEffect(() => {
-    setQuantities(Array(products.length).fill("0"));
-  }, [catalogType]);
-
-  useEffect(() => {
-    setSelectedItems((prev) =>
-      prev.map((item) => {
-        const product = products.find((p) => p.name === item.name);
-        if (!product) return item;
-  
-        const newPrice =
-          discount === 25
-            ? product.price25
-            : discount === 35
-            ? product.price35
-            : discount === 42
-            ? product.price42
-            : discount === 50
-            ? product.price50
-            : product.recommendedPrice;
-  
-        return { ...item, price: newPrice };
-      })
-    );
-  }, [discount, catalogType, products, products.length]);
+      useEffect(() => {
+        setQuantities(Array(products.length).fill("0"));
+      }, [catalogType, products.length]); // ← bu yerda products.length qo'shildi
+      
+      useEffect(() => {
+        setSelectedItems((prev) =>
+          prev.map((item) => {
+            const product = products.find((p) => p.name === item.name);
+            if (!product) return item;
+      
+            const newPrice =
+              discount === 25
+                ? product.price25
+                : discount === 35
+                ? product.price35
+                : discount === 42
+                ? product.price42
+                : discount === 50
+                ? product.price50
+                : product.recommendedPrice;
+      
+            return { ...item, price: newPrice };
+          })
+        );
+      }, [discount, catalogType, products]); // ← products.length emas, products qo'shildi
   
 
   const increase = (index) => {
