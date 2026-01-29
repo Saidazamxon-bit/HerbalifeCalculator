@@ -448,6 +448,7 @@ const Home = () => {
       prev.map((item) => {
         const product = products.find((p) => p.name === item.name);
         if (!product) return item;
+  
         const newPrice =
           discount === 25
             ? product.price25
@@ -458,10 +459,12 @@ const Home = () => {
             : discount === 50
             ? product.price50
             : product.recommendedPrice;
+  
         return { ...item, price: newPrice };
       })
     );
-  }, [discount, catalogType]);
+  }, [discount, catalogType, products]);
+  
 
   const increase = (index) => {
     const newQuantities = [...quantities];
