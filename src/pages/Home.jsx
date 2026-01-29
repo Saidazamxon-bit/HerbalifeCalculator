@@ -463,7 +463,7 @@ const Home = () => {
         return { ...item, price: newPrice };
       })
     );
-  }, [discount, catalogType, products]);
+  }, [discount, catalogType, products, products.length]);
   
 
   const increase = (index) => {
