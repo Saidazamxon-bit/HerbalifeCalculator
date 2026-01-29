@@ -575,7 +575,7 @@
 
 @media (max-width: 767px) {
   .pwbox{
-    border: none;
+    
     width: 100%;
     margin: auto;
     box-sizing: border-box;
