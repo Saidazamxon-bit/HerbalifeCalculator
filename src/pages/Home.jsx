@@ -29,6 +29,7 @@ import fito from "../assets/fito.png";
 import For2 from "../assets/for2.png";
 import Line from "../assets/Herbaline.png";
 import Kalsiy from "../assets/Kalsiy.png";
+import Tovuq from "../assets/tovuq.png";
 
 // Boshqa rasmlar
 import eko from "../assets/boshqa/ekoligik.png";
@@ -37,6 +38,9 @@ import ikkishisha from "../assets/boshqa/2lshisha.png";
 import qoshiq from "../assets/boshqa/qoshiqoddiy.png";
 import beshshaker from "../assets/boshqa/5shaker.jpeg";
 import Shartnoma from "../assets/shartnoma.png";
+
+import aloqa from "../assets/aloqa.png"
+import PWlogo from "../assets/PWlogo.png"
 
 // --- Mahsulotlar (Nutrition) ---
 const allProducts = [
@@ -235,6 +239,20 @@ const allProducts = [
     likes: 14,
     unlikes: 2,
     image: Kalsiy,
+    category: "mahsulotlar",
+  },
+
+  {
+    name: "Proteinli kokteyl. Tovuqli krem-sho'rva ta'mli Formula 1",
+    vp: 23.95,
+    recommendedPrice: 473878,
+    price25: 375408,
+    price35: 336020,
+    price42: 308448,
+    price50: 276937,
+    likes: 18,
+    unlikes: 2,
+    image: Tovuq,
     category: "mahsulotlar",
   },
 ];
@@ -615,7 +633,17 @@ const Home = () => {
           <h3>Umumiy narx: {totalPrice.toLocaleString()} so‘m</h3>
         </div>
       )}
+      <div className={css.pwbox}>
+         <img className={css.PWlogo} src={PWlogo} alt="" />
+      <img className={css.Aloqa} src={aloqa} alt="" />
+      <h3 className={css.Pwtext}>Biz bilan biznesingizni tez va oson rivojlantiring!</h3>
+      <h6 className={css.Pwtext1}>Mualliflik huquqi © 2026 PrintWork. Barcha huquqlar himoyalangan.</h6>
+      </div>
+     
+      
     </div>
+
+  
   );
 };
 
