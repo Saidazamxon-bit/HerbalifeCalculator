@@ -230,7 +230,7 @@ const allProducts = [
 
   {
     name: "Xtra Cal (KALSIY)",
-    vp: 19.40,
+    vp: 10.25,
     recommendedPrice: 219953,
     price25: 219953,
     price35: 196875,
