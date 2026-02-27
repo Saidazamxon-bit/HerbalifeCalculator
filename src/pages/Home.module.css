@@ -1,0 +1,609 @@
+.box {
+  width: 100%;
+  margin-top: 100px;
+}
+
+.Hertext {
+  width: 580px;
+  margin: auto;
+  color: rgb(0, 158, 0);
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-top: -80px;
+  text-align: center;
+  margin-left: 350px;
+}
+
+.Hertext img {
+  width: 40px;
+  height: 45px;
+}
+
+.cardbox {
+  width: 85%;
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 250px;
+  height: auto;
+  background: #fff;
+  border-radius: 15px;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-5px);
+}
+
+.cardimg {
+  width: 90%;
+  height: 160px;
+  border-radius: 12px;
+  margin: 0 auto 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cardimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.productname {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  margin: 8px 0;
+}
+
+.vpValue {
+  font-size: 14px;
+  color: gray;
+  font-weight: 400;
+  margin: 5px 0 0 0;
+}
+
+.price {
+  font-size: 13px;
+  color: #777;
+  margin: 3px 0 10px 0;
+  font-style: italic;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.counter button {
+  background: #e0e0e0;
+  border: none;
+  padding: 4px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  height: 30px;
+  line-height: 1;
+}
+
+.counterInput {
+  width: 36px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px;
+  font-size: 14px;
+  height: 30px;
+  appearance: textfield; /* Strelkalarni o'chiradi */
+
+  /* Safari uchun */
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.counter span {
+  font-size: 16px;
+  font-weight: 500;
+  min-width: 20px;
+}
+
+.addbtn {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.addbtn:hover {
+  background-color: #059669;
+}
+
+.likeUnlikeSection {
+  margin-top: 8px;
+}
+
+.productimg {
+  width: 60px;
+  height: auto;
+  margin-top: -10px;
+}
+
+.betaxart {
+  width: 150px;
+  padding: 5px;
+}
+
+.chips {
+  width: 160px;
+  padding: 5px;
+}
+
+.aloemango {
+  width: 150px;
+  padding: 5px;
+}
+
+.topWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0 auto;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.dropdownFixed {
+  position: relative;
+}
+
+.discountDropdown {
+  position: relative;
+}
+
+.discountDropdown select {
+  padding: 10px 16px;
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  background-color: #f0fdf4;
+  color: #065f46;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-width: 160px;
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='green' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+}
+
+.discountDropdown select:hover {
+  background-color: #e7fbe9;
+  border-color: #059669;
+}
+
+.discountDropdown select:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
+
+
+
+
+.cartbox {
+  width: 85%;
+  margin: 40px auto;
+  background-color: #f0fdf4;
+  border: 2px dashed #10b981;
+  border-radius: 12px;
+  padding: 20px;
+  font-family: sans-serif;
+  color: #065f46;
+}
+
+.cartbox h2 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  color: #059669;
+}
+
+.cartItem {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #a7f3d0;
+}
+
+.summaryBox {
+  background-color: #f0fdf4;
+  border: 2px solid #10b981;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 40px auto;
+  width: 90%;
+  font-family: sans-serif;
+  color: #065f46;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.summaryBox h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.summaryBox ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.summaryBox li {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.topSummaryBoxStyled {
+  position: fixed;
+  top: 200px;
+  right: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.summaryTitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 5px;
+}
+
+.summaryValue {
+  font-size: 18px;
+  font-weight: 600;
+  color: #007bff;
+  margin: 0 0 10px;
+}
+
+@media (max-width: 767px) {
+  .topWrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Hertext {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 95%;
+    font-size: 13px;
+    gap: 8px;
+    margin-top: -60px;
+    margin-left: 0;
+  }
+
+  .Hertext h1 {
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  .Hertext img {
+    width: 30px;
+    height: 35px;
+    margin: 0;
+  }
+
+  .dropdownFixed {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .discountDropdown select {
+    width: 80%;
+    font-size: 13px;
+    padding: 10px;
+    background-position: right 12px center;
+  }
+
+  .cardbox {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 10px;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+  
+
+  .card {
+    width: 48%;
+    background: #fff;
+    border-radius: 15px;
+    text-align: center;
+    font-family: sans-serif;
+    padding: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+
+  .productname {
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  .vpValue {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+
+  .counter button {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+
+  .counter Input {
+    width: 32px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px;
+    font-size: 14px;
+    height: 28px;
+  }
+  .counter button {
+    background: #e0e0e0;
+    border: none;
+    padding: 4px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    height: 28px;
+  }
+  
+  
+
+  .addbtn {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .productimg {
+    width: 80px;
+  }
+
+  .cardimg {
+    height: 100px;
+  }
+
+  .topSummaryBoxStyled {
+    display: none;
+  }
+  
+  .summaryTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 5px;
+  }
+  
+  .summaryValue {
+    font-size: 18px;
+    font-weight: 600;
+    color: #007bff;
+    margin: 0 0 10px;
+  }
+
+  .pwbox{
+    border: 2px red solid;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .Aloqa {
+    width: 100%;
+    margin-top: -100px;
+  }
+  .PWlogo{
+    margin: auto;
+    width: 50%;
+    margin-top: -50px;
+  }
+}
+
+
+/* Inputdagi spinner tugmalarini yo‘qotish uchun */
+.counterInput::-webkit-outer-spin-button,
+.counterInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.counterInput {
+  -moz-appearance: textfield; /* Firefox uchun */
+  appearance: textfield;
+  width: 36px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px;
+  font-size: 14px;
+  height: 30px;
+}
+
+
+.notification {
+  position: fixed;
+  top: -100px; /* boshlanishda tashqarida */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #d1fae5;
+  color: #065f46;
+  font-weight: 500;
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  width: 95%;
+  max-width: 400px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+/* Show holati */
+.notification.show {
+  top: 20px;
+  opacity: 1;
+}
+
+/* Hide holati */
+.notification.hide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+
+.dropdownGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.catalogDropdown {
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.catalogDropdown:hover {
+  background-color: #f0f0f0;
+  border-color: #4caf50;
+}
+
+.catalogDropdown:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.pwbox{
+  border: none;
+  width: 30%;
+  margin: auto;
+  box-sizing: border-box;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Aloqa {
+  width: 100%;
+  margin-top: -10%;
+}
+.PWlogo{
+  margin: auto;
+  width: 50%;
+  margin-top: -50px;
+}
+
+.Pwtext1{
+  font-size: 8px;
+  color: grey;
+}
+
+@media (max-width: 767px) {
+  .pwbox{
+    
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .Aloqa {
+    width: 100%;
+    margin-top: -10%;
+  }
+  .PWlogo{
+    margin: auto;
+    width: 50%;
+    margin-top: -50px;
+  }
+  .Pwtext{
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    
+  }
+  .Pwtext1{
+    font-size: 8px;
+    color: grey;
+    text-align: center;
+    margin-top: 10px;
+    
+  }
+}
