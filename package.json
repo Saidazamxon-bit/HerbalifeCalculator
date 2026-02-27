@@ -45,9 +45,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
   },
   "devDependencies": {
     "vite-plugin-pwa": "^1.2.0",
     "workbox-webpack-plugin": "^7.4.0"
+=======
+>>>>>>> dc6d66832fc9b85790cf08131afe3b412b62c453
   }
 }
