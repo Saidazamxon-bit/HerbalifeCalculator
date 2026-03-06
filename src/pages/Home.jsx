@@ -555,7 +555,7 @@ const Home = () => {
       <div className={css.topWrapper}>
         <div className={css.Hertext}>
           <img src={logo} alt="logo" />
-          <h1>Herbalife Nutrition Product Scores</h1>
+          <h1>Herbalife</h1>
         </div>
         <div className={css.dropdownGroup}>
           <CatalogDropdown selected={catalogType} setSelected={setCatalogType} />
